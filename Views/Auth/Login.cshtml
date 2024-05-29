@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - OpenIdAuthServer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+            .login-container h2 {
+                margin-bottom: 1.5rem;
+                color: #333;
+            }
+
+            .login-container form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .login-container label {
+                text-align: left;
+                margin-bottom: 0.5rem;
+                color: #666;
+            }
+
+            .login-container input[type="text"],
+            .login-container input[type="password"] {
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 1rem;
+            }
+
+            .login-container button {
+                padding: 0.75rem;
+                border: none;
+                border-radius: 4px;
+                background-color: #007bff;
+                color: #fff;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+                .login-container button:hover {
+                    background-color: #0056b3;
+                }
+
+            .login-container .error-message {
+                color: #ff0000;
+                margin-bottom: 1rem;
+            }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        @if (ViewData.ModelState[""]?.Errors.Count > 0)
+        {
+            <div class="error-message">@ViewData.ModelState[""].Errors[0].ErrorMessage</div>
+        }
+        <form method="post" action="/auth/login">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

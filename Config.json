@@ -1,0 +1,8 @@
+{
+    "Jwt": {
+        "Key": "44804ecf63c2814fbd52d48514d18b73577022adce68ab49446ea161ccd1509d62766d65cbfa5d936d6ce8a4167e516a5047cd50090f942a6f1f90260eb638a5",
+        "Issuer": "OpenIdAuthServer",
+        "Audience": "OpenIdAuthServerAudience",
+        "ExpiryMinutes":  60
+    }
+}
