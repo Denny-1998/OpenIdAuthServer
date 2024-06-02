@@ -65,7 +65,7 @@ public class AuthController : Controller
     public async Task<IActionResult> Login(string username, string password, [FromQuery]string returnUrl = "/auth/authorize")
     {
 
-        LoggedInUser user = new LoggedInUser(username, password, _userRepository, _clientRepository);
+        LoggedInUser user = new LoggedInUser(username, password, _userRepository);
         if (!user.checkUsername())
             return Unauthorized("wrong username or password.");
 

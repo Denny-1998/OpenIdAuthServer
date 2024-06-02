@@ -8,18 +8,16 @@ namespace OpenIdAuthServer.Helper
 
         string _username, _password;
         IUserRepository _userRepository;
-        IClientRepository _clientRepository;
         HashHelper _hashHelper;
         User _user;
 
-        public LoggedInUser(string username, string password, IUserRepository userRepository, IClientRepository clientRepository)
+        public LoggedInUser(string username, string password, IUserRepository userRepository)
         {
             _username = username;
             _password = password;
 
             _hashHelper = new HashHelper();
             _userRepository = userRepository;
-            _clientRepository = clientRepository;
         }
 
         public bool checkUsername()
